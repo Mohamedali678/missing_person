@@ -261,8 +261,13 @@ class _AddPostScreenState extends State<AddPostScreen> {
                   //     builder: (context) => HomeScreen(),
                   //   ),
                   // );
-                  Provider.of<Data>(context, listen: false)
-                      .addNewData(imagePath!, name!, age!.toInt(), location!);
+                  Provider.of<Data>(context, listen: false).addNewData(
+                    imagePath!,
+                    name!,
+                    age!.toInt(),
+                    location!,
+                    true,
+                  );
 
                   Navigator.pop(context);
                 },

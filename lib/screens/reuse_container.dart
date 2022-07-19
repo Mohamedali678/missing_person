@@ -16,19 +16,27 @@ class BoxData extends StatefulWidget {
       {required this.imageUrl,
       required this.name,
       required this.age,
-      required this.location});
+      required this.location,
+      required this.isFile});
 
+  bool isFile;
   @override
   State<BoxData> createState() => _BoxDataState();
 }
 
 class _BoxDataState extends State<BoxData> {
-  bool isFile = false;
 
   File? imageFile;
+  @override
+  void initState() {
+    // TODO: implement initState
+    super.initState();
+    imageFile = File(widget.imageUrl);
+  }
 
   @override
   Widget build(BuildContext context) {
+    print("path ${widget.isFile} " + widget.imageUrl);
     return Container(
       padding: const EdgeInsets.all(10),
       decoration: BoxDecoration(
@@ -42,15 +50,18 @@ class _BoxDataState extends State<BoxData> {
             children: [
               ClipRRect(
                 borderRadius: BorderRadius.circular(8),
-                child: isFile != true
+                child: widget.isFile != true
                     ? Image(
                         image: AssetImage(widget.imageUrl),
                         height: 120,
                         width: 120,
                         fit: BoxFit.cover,
                       )
-                    : Image(
-                        image: FileImage(imageFile!),
+                    : Image.file(
+                        imageFile!,
+                        height: 120,
+                        width: 120,
+                        fit: BoxFit.cover,
                       ),
               ),
               const SizedBox(

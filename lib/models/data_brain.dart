@@ -3,10 +3,12 @@ class DataBrain {
   final String name;
   final age;
   final String location;
-
-  DataBrain(
-      {required this.image,
-      required this.name,
-      required this.age,
-      required this.location});
+  final bool isFile;
+  DataBrain({
+    required this.image,
+    required this.name,
+    required this.age,
+    required this.location,
+    this.isFile = false,
+  });
 }

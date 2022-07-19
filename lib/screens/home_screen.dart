@@ -28,6 +28,7 @@ class _HomeScreenState extends State<HomeScreen> {
               name: Provider.of<Data>(context).getData[index].name,
               age: Provider.of<Data>(context).getData[index].age,
               location: Provider.of<Data>(context).getData[index].location,
+              isFile:  Provider.of<Data>(context).getData[index].isFile,
             );
             //BoxData(imageUrl: imageUrl, name: name, age: age, location: location);
           },

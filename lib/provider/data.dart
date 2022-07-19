@@ -22,9 +22,15 @@ class Data extends ChangeNotifier {
         location: "Hodan"),
   ];
 
-  void addNewData(image, String name, int age, String location) {
+  void addNewData(image, String name, int age, String location, bool isFile) {
     getData.add(
-      DataBrain(image: image, name: name, age: age, location: location),
+      DataBrain(
+        image: image,
+        name: name,
+        age: age,
+        location: location,
+        isFile: isFile,
+      ),
     );
     notifyListeners();
   }
