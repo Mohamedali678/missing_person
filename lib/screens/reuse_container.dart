@@ -11,13 +11,15 @@ class BoxData extends StatefulWidget {
   final String name;
   final int age;
   final String location;
+  final iconData;
 
   BoxData(
       {required this.imageUrl,
       required this.name,
       required this.age,
       required this.location,
-      required this.isFile});
+      required this.isFile,
+      required this.iconData});
 
   bool isFile;
   @override
@@ -25,7 +27,6 @@ class BoxData extends StatefulWidget {
 }
 
 class _BoxDataState extends State<BoxData> {
-
   File? imageFile;
   @override
   void initState() {
@@ -98,10 +99,10 @@ class _BoxDataState extends State<BoxData> {
             bottom: 40,
             child: IconButton(
               onPressed: () {},
-              icon: const Icon(Icons.share, size: 35),
+              icon: widget.iconData,
             ),
           ),
-          SizedBox(
+          const SizedBox(
             height: 50,
           )
         ],

@@ -1,5 +1,6 @@
 import 'package:ambad2/provider/data.dart';
 import 'package:ambad2/screens/add_post.dart';
+import 'package:ambad2/screens/bottom_nav.dart';
 import 'package:ambad2/screens/home_screen.dart';
 import 'package:ambad2/screens/login_screen.dart';
 import 'package:flutter/material.dart';
@@ -22,7 +23,7 @@ class MyApp extends StatelessWidget {
         theme: ThemeData(
           primarySwatch: Colors.blue,
         ),
-        home: HomeScreen(),
+        home: LoginScreen(),
       ),
     );
   }

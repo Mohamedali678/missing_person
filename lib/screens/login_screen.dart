@@ -1,3 +1,4 @@
+import 'package:ambad2/screens/bottom_nav.dart';
 import 'package:ambad2/screens/home_screen.dart';
 import 'package:ambad2/screens/signup_screen.dart';
 import 'package:flutter/material.dart';
@@ -12,6 +13,21 @@ class LoginScreen extends StatefulWidget {
 class _LoginScreenState extends State<LoginScreen> {
   final _globalKey = GlobalKey<FormState>();
 
+  String? email;
+  String? password;
+
+  final emailController = TextEditingController();
+  final passwordController = TextEditingController();
+
+  @override
+  void dispose() {
+    // TODO: implement dispose
+    super.dispose();
+
+    emailController.clear();
+    passwordController.clear();
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -23,6 +39,10 @@ class _LoginScreenState extends State<LoginScreen> {
           Container(
             margin: const EdgeInsets.symmetric(horizontal: 12, vertical: 12),
             child: TextFormField(
+              controller: emailController,
+              onChanged: (value) {
+                email = value;
+              },
               validator: (value) {
                 if (value == null || value.isEmpty) {
                   return "Email is required";
@@ -54,6 +74,10 @@ class _LoginScreenState extends State<LoginScreen> {
           Container(
             margin: const EdgeInsets.symmetric(horizontal: 12, vertical: 12),
             child: TextFormField(
+              controller: passwordController,
+              onChanged: (value) {
+                password = value;
+              },
               validator: (value) {
                 if (value == null || value.isEmpty) {
                   return "Password is required";
@@ -92,15 +116,16 @@ class _LoginScreenState extends State<LoginScreen> {
                       content: Text("Successfully login"),
                     ),
                   );
+
                   Navigator.push(
                     context,
                     MaterialPageRoute(
-                      builder: (context) => HomeScreen(),
+                      builder: (context) => BottomNavBar(),
                     ),
                   );
                 }
               },
-              color: Color.fromARGB(255, 245, 20, 95),
+              color: Colors.amber,
               shape: RoundedRectangleBorder(
                 borderRadius: BorderRadius.circular(8),
               ),

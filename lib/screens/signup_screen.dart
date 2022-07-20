@@ -122,7 +122,7 @@ class _SignupScreenState extends State<SignupScreen> {
                     );
                   }
                 },
-                color: Color.fromARGB(255, 245, 20, 95),
+                color: Colors.amber,
                 shape: RoundedRectangleBorder(
                   borderRadius: BorderRadius.circular(8),
                 ),
